@@ -1,5 +1,6 @@
 require 'yaml'
 require 'sinatra'
+require 'rack/cors'
 require_relative 'token.rb'
 
 config_file = '.autodeskrc'
@@ -12,6 +13,14 @@ config = YAML.load_file(config_file)
 
 credentials = config[project_name]
 
+use Rack::Cors do |config|
+  config.allow do |allow|
+    allow.origins 'localhost'
+    allow.resource '/token.json', headers: :any
+  end
+end
+
+
 unless credentials
   raise RuntimeError, "#{project_name} configuration missing in .autodeskrc"
 end
@@ -21,3 +30,4 @@ get '/token.json' do
 
   get_token(credentials)
 end
+

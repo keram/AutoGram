@@ -1,17 +1,21 @@
 .scene {
-  border: dashed 1px #777;
-  height: 40vh;
-  width: 40vh;
+  height: 45.45455vh;
+  width: 45.45455vh;
   position: absolute;
   background: #eee;
   text-align: center; }
+  .scene span {
+    position: absolute;
+    padding: 0.25em;
+    opacity: 0.7;
+    color: #888; }
 
 .scene-holder {
   width: 100vh;
   height: 100vh;
   text-align: center;
   position: relative;
-  background: #fff; }
+  margin: 0 1em; }
 
 .back-scene {
   top: 0; }
@@ -20,20 +24,53 @@
   bottom: 0; }
 
 .right-scene {
-  left: 60vh; }
+  left: 54.54545vh; }
 
 .left-scene {
   left: 0; }
 
 .back-scene,
 .front-scene {
-  left: 30vh; }
+  left: 27.27273vh; }
 
 .right-scene,
 .left-scene {
-  top: 30vh; }
+  top: 27.27273vh; }
 
 .control-scene {
-  top: 30vh;
-  right: 2em;
-  border: solid 1px red; }
+  top: 21.27273vh;
+  right: -63.63636vh;
+  height: 56.81818vh;
+  width: 56.81818vh; }
+
+.back-scene #navTools,
+.back-scene #modelTools,
+.back-scene #settingsTools,
+.back-scene .homeViewWrapper,
+.back-scene .infoButton,
+.right-scene #navTools,
+.right-scene #modelTools,
+.right-scene #settingsTools,
+.right-scene .homeViewWrapper,
+.right-scene .infoButton,
+.front-scene #navTools,
+.front-scene #modelTools,
+.front-scene #settingsTools,
+.front-scene .homeViewWrapper,
+.front-scene .infoButton,
+.left-scene #navTools,
+.left-scene #modelTools,
+.left-scene #settingsTools,
+.left-scene .homeViewWrapper,
+.left-scene .infoButton {
+  display: none;
+  opacity: 0;
+  visibility: hidden; }
+
+.cubes-off .back-scene .viewcube,
+.cubes-off .right-scene .viewcube,
+.cubes-off .front-scene .viewcube,
+.cubes-off .left-scene .viewcube {
+  display: none;
+  opacity: 0;
+  visibility: hidden; }

@@ -3,14 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>AutoGram</title>
+    <title>AEC London Hackathon</title>
     <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css">
     <link rel="stylesheet" href="/www/stylesheets/styles.css">
-    <link rel="stylesheet" href="//vendor/autodesk/viewers/style.css">
+    <link rel="stylesheet" href="/vendor/autodesk/viewers/style.css">
 
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+<!--
     <script type="text/javascript" src="/bower_components/threejs/build/three.min.js"></script>
-    <script type="text/javascript" src="/vendor/autodesk/viewers/viewer3D.min.js"></script>
+    <script type="text/javascript" src="/bower_components/threejs//examples/js/loaders/DDSLoader.js"></script>
+ -->
+    <!-- <script type="text/javascript" src="/vendor/autodesk/viewers/three.min.js"></script>
+    <script type="text/javascript" src="/vendor/autodesk/viewers/viewer3D.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/mrdoob/three.js/master/examples/js/loaders/DDSLoader.js"></script>
+ -->
+    <link type="text/css" rel="stylesheet" href="/vendor/autodesk/viewers/style.css"/>
+
+    <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
 
     <script type="text/javascript" src="/www/javascripts/common.js"></script>
     <script type="text/javascript" src="/www/javascripts/scenes.js"></script>
@@ -20,30 +29,42 @@
 <div id="container">
     <div id="top">
         <div id="header">
-            <h1>AutoGram</h1>
+            <h1>AEC London Hackathon</h1>
         </div>
         <div id="nav">
             <a href="#" id="fullscreen-anchor">fullscreen</a>
+            <a href="#" id="togglecubes-anchor">toogle cubes</a>
+
         </div>
     </div>
     <div id="main-wrapper">
         <div id="main">
-            <div id="scene-holder">
+            <div class="scene-holder">
                 <div class="scene back-scene">
+                <span>
                 back
+                </span>
                 </div>
                 <div class="scene right-scene">
+                <span>
                 right
+                </span>
                 </div>
                 <div class="scene front-scene">
+                <span>
                 front
+                </span>
                 </div>
                 <div class="scene left-scene">
+                <span>
                 left
+                </span>
                 </div>
 
-                <div class="scene control-scene">
+                <div class="scene control-scene" id="control-scene">
+                <span>
                 control scene
+                </span>
                 </div>
             </div>
         </div>

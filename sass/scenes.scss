@@ -1,16 +1,21 @@
 
 $scene-holder-size: 100vh;
-$scene-size: $scene-holder-size / 2.5;
+$scene-size: $scene-holder-size / 2.2;
 $scene-center-position: ($scene-holder-size / 2) - ($scene-size / 2);
-$scene-border: dashed 1px #777;
 
 .scene {
-    border: $scene-border;
     height: $scene-size;
     width: $scene-size;
     position: absolute;
     background: #eee;
     text-align: center;
+
+    span {
+        position: absolute;
+        padding: 0.25em;
+        opacity: 0.7;
+        color: #888;
+    }
 }
 
 .scene-holder {
@@ -18,7 +23,7 @@ $scene-border: dashed 1px #777;
     height: $scene-holder-size;
     text-align: center;
     position: relative;
-    background: #fff;
+    margin: 0 1em;
 }
 
 .back-scene {
@@ -48,8 +53,41 @@ $scene-border: dashed 1px #777;
 }
 
 .control-scene {
-    top: $scene-center-position;
-    right: 2em;
-    border: solid 1px red;
+    top: $scene-center-position - 6;
+    right: $scene-size * -1 * 1.4;
+    height: $scene-size * 1.25;
+    width: $scene-size * 1.25;
 }
 
+.back-scene,
+.right-scene,
+.front-scene,
+.left-scene {
+    #navTools,
+    #modelTools,
+    #settingsTools,
+    .homeViewWrapper,
+    .infoButton {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.cubes-off {
+    .back-scene,
+    .right-scene,
+    .front-scene,
+    .left-scene {
+        .viewcube {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}
+
+
+.adsk-control.adsk-toolbar {
+    // display: none;
+}
