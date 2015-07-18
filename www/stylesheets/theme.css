@@ -1,5 +1,10 @@
 body {
   background-color: #fff; }
 
-#container {
-  border: solid 1px #0ff; }
+#top {
+  float: right;
+  padding: 0 2em;
+  width: 20%; }
+
+#main-wrapper {
+  margin: 0 2em; }

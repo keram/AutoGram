@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     jslint = require('gulp-jslint'),
     webserver = require('gulp-webserver'),
     clean = require('gulp-clean'),
+    notify = require('gulp-notify'),
     argv = require('yargs').argv;
 
 var paths = {
@@ -37,7 +38,10 @@ gulp.task('js-lint', function () {
             browser: true,
             global: [],
             predef: []
-        }));
+        }))
+        .on('error', function (error) {
+            console.error(String(error));
+        });
 });
 
 gulp.task('server', function () {

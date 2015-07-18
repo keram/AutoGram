@@ -1,14 +1,3 @@
-body {
-  background-color: #fff; }
-
-#top {
-  float: right;
-  padding: 0 2em;
-  width: 20%; }
-
-#main-wrapper {
-  margin: 0 2em; }
-
 .scene {
   border: dashed 1px #777;
   height: 40vh;

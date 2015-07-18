@@ -1,0 +1,51 @@
+
+$scene-holder-size: 100vh;
+$scene-size: $scene-holder-size / 2.5;
+$scene-center-position: ($scene-holder-size / 2) - ($scene-size / 2);
+$scene-border: dashed 1px #777;
+
+.scene {
+    border: $scene-border;
+    height: $scene-size;
+    width: $scene-size;
+    position: absolute;
+    background: #eee;
+    text-align: center;
+}
+
+.scene-holder {
+    width: $scene-holder-size;
+    height: $scene-holder-size;
+    text-align: center;
+    position: relative;
+    background: #fff;
+}
+
+.back-scene {
+    top: 0;
+}
+
+.front-scene {
+    bottom: 0;
+}
+
+.right-scene {
+    left: $scene-holder-size - $scene-size;
+}
+
+.left-scene {
+    left: 0;
+}
+
+.back-scene,
+.front-scene {
+    left: $scene-center-position;
+}
+
+.right-scene,
+.left-scene {
+    top: $scene-center-position;
+}
+
+
+
