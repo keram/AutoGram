@@ -32,3 +32,8 @@
 .right-scene,
 .left-scene {
   top: 30vh; }
+
+.control-scene {
+  top: 30vh;
+  right: 2em;
+  border: solid 1px red; }

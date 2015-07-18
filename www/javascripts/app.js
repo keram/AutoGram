@@ -1,29 +1,9 @@
-/*global $, window, Autodesk, doc */
+/*global $, window, Autodesk, doc, initScenes */
 
 (function () {
     'use strict';
 
-    var doc = $(document),
-
-        adn_config = {
-            environment : 'AutodeskProduction', // 'AutodeskProduction' | 'AutodeskStaging'
-            viewerType: 'Viewer3D'
-        },
-
-        scenes_names = ['back'],
-
-        viewer = Autodesk.ADN.Toolkit.Viewer,
-        tokenurl = '/www/data/token.json',
-        urn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRuLWdhbGxlcnktdHJ4L2NiN2ItNjVmYS0xYjZmLWUzODctYzkzMi5mM2Q=';
-
-
-    function onViewerInitialized(viewer) {
-        console.log('Viewer initialized', viewer);
-    }
-
-    function onError(error) {
-        console.log(error);
-    }
+    var doc = $(document);
 
     function fullscreen(element) {
         if (element.requestFullscreen) {
@@ -37,32 +17,23 @@
         }
     }
 
-    function initAdnViewerManager(tokenurl, holder, config) {
-        return new viewer.AdnViewerManager(tokenurl, holder, config);
-    }
-
-    function initScene(holder) {
-        var adnViewerMng = initAdnViewerManager(tokenurl, holder, adn_config);
-
-        adnViewerMng.loadDocument(urn, onViewerInitialized, onError);
-        return adnViewerMng;
-    }
-
-    function initScenes(scenes_names, holder) {
-        return scenes_names.map(function (name) {
-            return initScene(holder.getElementsByClassName(name + '-scene')[0]);
-        });
-    }
-
     doc.on('click', '#fullscreen-anchor', function () {
         fullscreen(
             document.getElementById('scene-holder')
         );
     });
 
-    $(function () {
-        var holder = document.getElementById('scene-holder');
 
-        initScenes(scenes_names, holder);
+    $(function () {
+        var holder = document.getElementById('scene-holder'),
+            scenes_names = ['back'],
+            urn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRuLWdhbGxlcnktdHJ4L2NiN2ItNjVmYS0xYjZmLWUzODctYzkzMi5mM2Q=',
+            // urn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmtfbWVkL0NsaW5pY19BLnJ2dA==';
+            token_url = '',
+            scenes;
+
+        scenes = initScenes(scenes_names, holder, token_url, urn);
+
+        console.log('-t- scenes: ', scenes);
     });
 }());
