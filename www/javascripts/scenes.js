@@ -44,7 +44,7 @@ function initializeViewer(viewerContainer, documentId, role) {
     var _viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerContainer);
 
     _viewer.start();
-    applyViewerDefaultSettings(_viewer);
+    // applyViewerDefaultSettings(_viewer);
 
     Autodesk.Viewing.Document.load(documentId,
         function (document) {

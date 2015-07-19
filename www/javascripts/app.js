@@ -39,20 +39,30 @@
                 accessToken: credentials['access_token'],
                 refreshToken: credentials['access_token']
             },
-            // scenes_names = ['control', 'back', 'right', 'front', 'left'],
+            scenes_names = ['control', 'back', 'right', 'front', 'left'],
+            // scenes_names = ['control', 'back'],
             // scenes_names = ['control'],
-            scenes_names = [],
+            // scenes_names = [],
             documentId = urn_url + urn;
+
+        var gradient = [0,0,0,0,0,0];
+
+        // viewer.prefs.set("backgroundColorPreset", JSON.stringify(c));
+        // viewer.impl.setClearColors(c[0],c[1],c[2],c[3],c[4],c[5]);
+
+        Autodesk.Viewing.Private.LightPresets.map(function (preset) {
+            preset.bgColorGradient = gradient;
+        });
 
         Autodesk.Viewing.Initializer(options, function () {
             var avp = Autodesk.Viewing.Private,
-                viewers;
+                viewers = {};
 
             avp.GPU_OBJECT_LIMIT = 100;
             avp.onDemandLoading = false;
 
-            viewers = scenes_names.map(function (name) {
-                return initializeViewer(
+            scenes_names.map(function (name) {
+                viewers[name] = initializeViewer(
                     document.getElementsByClassName(name + '-scene')[0],
                     documentId,
                     '3d'
@@ -62,8 +72,35 @@
             // var c = viewers[0];
 
             window.viewers = viewers;
-            // console.log('-t- viewers: ', c);
+
+            window.view_names = Object.keys(window.viewers).filter(function (elem) {
+                return elem !== 'control';
+            });
+
+            // var viewer = window.viewers[';
+            // var ctx = window.viewers[0].canvas.getContext('webgl');
+
+            // viewer.prefs.set("backgroundColorPreset", [100, 100, 100, 0, 0, 0]);
+
+            // ctx.fillStyle = 'rgba(10, 10, 200, 0.5)';
+            // ctx.clearColor( 1, 1, 200, 0.5 );
         });
+
+        setTimeout(function () {
+            console.log('-t-  cameraChanged event register');
+
+            viewers.control.addEventListener('cameraChanged', function () {
+                var camera = this.navigation.getCamera().clone();
+                // console.log('changed: ', camera);
+
+                // viewers.back.applyCamera(camera)
+                window.view_names.forEach(function (name) {
+                    console.log('-t- : ', name);
+                     // window.viewers.right.applyCamera(camera);
+                    // window.viewers[name].setCamera(camera);
+                });
+            });
+        }, 15000);
     }
 
     $(function () {

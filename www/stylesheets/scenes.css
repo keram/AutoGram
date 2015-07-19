@@ -1,8 +1,7 @@
 .scene {
-  height: 45.45455vh;
-  width: 45.45455vh;
+  height: 43.47826vh;
+  width: 43.47826vh;
   position: absolute;
-  background: #eee;
   text-align: center; }
   .scene span {
     position: absolute;
@@ -24,24 +23,24 @@
   bottom: 0; }
 
 .right-scene {
-  left: 54.54545vh; }
+  left: 56.52174vh; }
 
 .left-scene {
   left: 0; }
 
 .back-scene,
 .front-scene {
-  left: 27.27273vh; }
+  left: 28.26087vh; }
 
 .right-scene,
 .left-scene {
-  top: 27.27273vh; }
+  top: 28.26087vh; }
 
 .control-scene {
-  top: 21.27273vh;
-  right: -63.63636vh;
-  height: 56.81818vh;
-  width: 56.81818vh; }
+  top: 22.26087vh;
+  right: -60.86957vh;
+  height: 54.34783vh;
+  width: 54.34783vh; }
 
 .back-scene #navTools,
 .back-scene #modelTools,
@@ -74,3 +73,15 @@
   display: none;
   opacity: 0;
   visibility: hidden; }
+
+.cubes-off .back-scene,
+.cubes-off .right-scene,
+.cubes-off .front-scene,
+.cubes-off .left-scene {
+  transform: rotate(180deg); }
+
+.canvas-wrap {
+  background-color: transparent !important; }
+
+.adsk-viewing-viewer {
+  background-color: transparent !important; }

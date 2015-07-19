@@ -1,13 +1,12 @@
 
 $scene-holder-size: 100vh;
-$scene-size: $scene-holder-size / 2.2;
+$scene-size: $scene-holder-size / 2.3;
 $scene-center-position: ($scene-holder-size / 2) - ($scene-size / 2);
 
 .scene {
     height: $scene-size;
     width: $scene-size;
     position: absolute;
-    background: #eee;
     text-align: center;
 
     span {
@@ -24,6 +23,7 @@ $scene-center-position: ($scene-holder-size / 2) - ($scene-size / 2);
     text-align: center;
     position: relative;
     margin: 0 1em;
+
 }
 
 .back-scene {
@@ -72,6 +72,7 @@ $scene-center-position: ($scene-holder-size / 2) - ($scene-size / 2);
         opacity: 0;
         visibility: hidden;
     }
+
 }
 
 .cubes-off {
@@ -85,8 +86,23 @@ $scene-center-position: ($scene-holder-size / 2) - ($scene-size / 2);
             visibility: hidden;
         }
     }
+
+
+    .back-scene,
+    .right-scene,
+    .front-scene,
+    .left-scene {
+        transform: rotate(180deg);
+    }
 }
 
+.canvas-wrap {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.adsk-viewing-viewer {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
 
 .adsk-control.adsk-toolbar {
     // display: none;
